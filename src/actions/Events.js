@@ -18,6 +18,10 @@ let Events = {
 
   show() {
     State.set('showingCards', true);
+    if (window.cordova) {
+      window.cordova.plugins.Keyboard.close();
+      setTimeout(window.cordova.plugins.Keyboard.close, 150);
+    }
   },
 
   hide() {

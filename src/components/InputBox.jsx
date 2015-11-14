@@ -26,6 +26,10 @@ class InputBox extends React.Component {
     this.refs.input.value = '';
     this.setState({ canCreate: false, eventData: null });
     setTimeout(Events.show, 300);
+    this.refs.input.blur();
+    if (window.cordova) {
+      window.cordova.plugins.Keyboard.close();
+    }
   }
 
   render() {
