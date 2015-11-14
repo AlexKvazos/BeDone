@@ -1,3 +1,6 @@
+@color-primary: #a3151c;
+@color-secondary: #4d1c1f;
+
 @font-face {
   font-family: Lato;
   src: url(fonts/Lato-Regular.ttf);
@@ -22,6 +25,90 @@ body, html {
 
 body {
   font-family: 'Lato';
-  color: #000;
-  background: #FFF;
+  background: @color-secondary;
+}
+
+#navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: @color-primary;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  color: #fff;
+  line-height: 4;
+  font-size: 20px;
+}
+
+#toggler {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: @color-primary;
+  border-radius: 100%;
+  text-align: center;
+  font-size: 20px;
+  line-height: 3;
+  color: #fff;
+}
+
+img.logo {
+  width: 130px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 150px;
+}
+
+#inputbox {
+  margin: 50px 20px 0;
+
+  h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 200;
+    color: #fff;
+    padding-bottom: 10px;
+  }
+
+  .input-wrapper {
+    position: relative;
+  }
+
+  .btn {
+    background: @color-primary;
+    padding: 5px;
+    color: #fff;
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    right: 5px;
+    border-radius: 4px;
+    -webkit-transition-duration: .25s;
+    transition-duration: .25s;
+  }
+
+  .hiding {
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition-duration: .25s;
+    transition-duration: .25s;
+  }
+
+  input {
+    width: 100%;
+    outline: none;
+    padding: 10px;
+    padding-right: 70px;
+    box-sizing: border-box;
+    border: none;
+    max-width: 100%;
+    font-size: 14px;
+    border-radius: 4px;
+    -webkit-box-shadow: 1px 2px 10px rgba(0,0,0,0.5);
+    box-shadow: 1px 2px 10px rgba(0,0,0,0.5);
+  }
 }
