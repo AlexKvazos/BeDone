@@ -63,6 +63,49 @@ let Parser = {
     });
 
     return result;
+  },
+
+  /**
+   * Set the hour of the date object with the eventData hour
+   * @param {Object} dateObject Moment object
+   */
+  setHour(eventData, dateObject) {
+    let hoursToAdd, minutesToAdd, success;
+
+    let match = eventData.hour.match(/(\d+):(\d+)\s*pm/);
+    if (match && !success) {
+      success = true;
+      hoursToAdd = 12 + parseInt(match[1]);
+      minutesToAdd = 0 + parseInt(match[2]);
+      dateObject.hours(hoursToAdd);
+      dateObject.minutes(minutesToAdd);
+    }
+
+    match = eventData.hour.match(/(\d+)\s*pm/);
+    if (match && !success) {
+      success = true;
+      hoursToAdd = 12 + parseInt(match[1]);
+      dateObject.hours(hoursToAdd);
+      dateObject.minutes(0);
+    }
+
+    match = eventData.hour.match(/(\d+):(\d+)\s*?(am)?/);
+    if (match && !success) {
+      success = true;
+      hoursToAdd = parseInt(match[1]);
+      minutesToAdd = parseInt(match[2]);
+      dateObject.hours(hoursToAdd);
+      dateObject.minutes(minutesToAdd);
+    }
+
+    match = eventData.hour.match(/(\d+)\s*?(am)?/);
+    if (match && !success) {
+      success = true;
+      hoursToAdd = parseInt(match[1]);
+      dateObject.hours(hoursToAdd);
+      dateObject.minutes(0);
+    }
+
   }
 
 };

@@ -14,6 +14,24 @@ const Dictionary = {
       regex: /(on|for)?\s*(monday|tuesday|wednesday|thursday|friday|saturday|sunday)/gi,
       index: 0
     }
+  ],
+  hour: [
+    {
+      regex: /at\s*((\d+):(\d+)\s*(am|pm))/gi,
+      index: 0
+    },
+    {
+      regex: /at\s*((\d+)\s*(am|pm))/gi,
+      index: 0
+    },
+    {
+      regex: /at\s*((\d+):(\d+))/gi,
+      index: 0
+    },
+    {
+      regex: /at\s*(\d+)/gi,
+      index: 0
+    }
   ]
 };
 

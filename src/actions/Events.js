@@ -6,6 +6,10 @@ let Events = {
   create(eventData) {
     let dateObject = Parser.stringToDate(eventData.date);
 
+    if (eventData.hour) {
+      Parser.setHour(eventData, dateObject);
+    }
+
     let event = {
       title: eventData.subject,
       date: dateObject,
