@@ -3,7 +3,14 @@
 
 @font-face {
   font-family: Lato;
+  font-weight: normal;;
   src: url(fonts/Lato-Regular.ttf);
+}
+
+@font-face {
+  font-family: Lato;
+  font-weight: 200;
+  src: url(fonts/Lato-Light.ttf);
 }
 
 .no-select {
@@ -131,11 +138,37 @@ img.logo {
   transition-duration: .5s;
   transform: translate3d(0,0,0);
   animation-timing-function: ease-in;
+  margin: 0 20px;
+
+  h1 {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 200;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    h1 {
+      color: #242424;
+      margin: 0;
+    }
+
+    p {
+      color: #666;
+      margin: 0;
+      font-size: 14px;
+      font-weight: 200;
+    }
+  }
 
   &.hidden {
     opacity: 0;
-    animation-timing-function: ease-out;
-    transform: translateY(85%);
+    animation-timing-function: ease-in;
+    transform: translateY(80%);
     -webkit-transition-duration: .5s;
     transition-duration: .5s;
   }

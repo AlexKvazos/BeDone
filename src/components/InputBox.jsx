@@ -25,6 +25,7 @@ class InputBox extends React.Component {
     Events.create(this.state.eventData);
     this.refs.input.value = '';
     this.setState({ canCreate: false, eventData: null });
+    setTimeout(Events.show, 300);
   }
 
   render() {
