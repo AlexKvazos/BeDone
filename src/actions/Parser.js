@@ -1,15 +1,4 @@
-let dictionary = {
-  date: [
-    {
-      regex: /(for)?\s*(today|tomorrow|in \d+ days|next week|in a week|in a day)/gi,
-      index: 0
-    },
-    {
-      regex: /(on|for)?\s*(monday|tuesday|wednesday|thursday|friday|sunday)/gi,
-      index: 0
-    }
-  ]
-};
+import { Dictionary, Dates } from '../modules';
 
 let Parser = {
 
@@ -22,18 +11,18 @@ let Parser = {
     let data = {};
 
     /**
-     * Iterate on each type of match on the dictionary
+     * Iterate on each type of match on the Dictionary
      */
-    for (var matches in dictionary) {
+    for (var matches in Dictionary) {
       doTest(matches);
     }
 
     /**
-     * Execute a test on a dictionary item
+     * Execute a test on a Dictionary item
      * @param  {Object} i Dictionary item
      */
     function doTest(matches) {
-      dictionary[matches].forEach((i) => {
+      Dictionary[matches].forEach((i) => {
 
         let match = input.match(i.regex);
         if (match) {
@@ -53,6 +42,27 @@ let Parser = {
 
     // return the data object to caller
     return data;
+  },
+
+  /**
+   * Convert a stringified date to a real date object
+   * @param  {String} str Date representation
+   * @return {Object}     Date object
+   */
+  stringToDate(str) {
+    str = str.trim();
+    let result;
+
+    Dates.forEach((representation) => {
+      let match = str.match(representation.pattern);
+
+      if (match) {
+        match.splice(0, 1);
+        result = representation.obj(...match);
+      }
+    });
+
+    return result;
   }
 
 };

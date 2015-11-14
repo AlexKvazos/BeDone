@@ -14,7 +14,7 @@ class App extends React.Component {
           BeDone
         </Navbar>
 
-        <img className="logo" src="img/logo.png" />
+        <img className="logo no-select" src="img/logo.png" />
         <InputBox />
 
         {/* <div id="toggler">
