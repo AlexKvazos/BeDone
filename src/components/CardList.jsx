@@ -19,7 +19,7 @@ class CardList extends React.Component {
     return (
       <div id="cardlist" className={ cardlistClass }>
 
-        <h1>Today</h1>
+        <h1>Today ({ this.props.events.length })</h1>
         { map(this.props.events, (event, index) => {
           return (
             <div className="card" key={ `event-${index}` }>
@@ -29,7 +29,7 @@ class CardList extends React.Component {
           );
         }) }
 
-        <h1>Tomorrow</h1>
+        <h1>Tomorrow ({ this.props.events.length })</h1>
         { map(this.props.events, (event, index) => {
           return (
             <div className="card" key={ `event-${index}` }>
@@ -39,7 +39,7 @@ class CardList extends React.Component {
           );
         }) }
 
-        <h1>Future events</h1>
+        <h1>Future Events ({ this.props.events.length })</h1>
         { map(this.props.events, (event, index) => {
           return (
             <div className="card" key={ `event-${index}` }>
