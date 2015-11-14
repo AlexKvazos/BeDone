@@ -4,7 +4,8 @@ import Baobab from 'baobab';
 let events = localStorage.events ? JSON.parse(localStorage.events) : null;
 
 let state = new Baobab({
-  events: events || []
+  events: events || [],
+  showingCards: false
 });
 
 export default state;

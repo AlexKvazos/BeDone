@@ -20,6 +20,7 @@ body, html {
   width: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 body {
@@ -51,8 +52,16 @@ body {
   border-radius: 100%;
   text-align: center;
   font-size: 20px;
-  line-height: 3;
+  line-height: 2.7;
   color: #fff;
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
+}
+
+.rotate {
+  transform: rotateZ(180deg);
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
 }
 
 img.logo {
@@ -109,5 +118,39 @@ img.logo {
     border-radius: 4px;
     -webkit-box-shadow: 1px 2px 10px rgba(0,0,0,0.5);
     box-shadow: 1px 2px 10px rgba(0,0,0,0.5);
+  }
+}
+
+#cardlist {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
+  transform: translate3d(0,0,0);
+  animation-timing-function: ease-in;
+
+  &.hidden {
+    opacity: 0;
+    animation-timing-function: ease-out;
+    transform: translateY(85%);
+    -webkit-transition-duration: .5s;
+    transition-duration: .5s;
+  }
+}
+
+#front {
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
+  animation-timing-function: ease-in;
+
+  &.hidden {
+    opacity: 0;
+    transform: translate3d(0, -100px, 0);
+    animation-timing-function: ease-out;
+    -webkit-transition-duration: .5s;
+    transition-duration: .5s;
   }
 }
