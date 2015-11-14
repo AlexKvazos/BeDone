@@ -23,6 +23,8 @@ class InputBox extends React.Component {
 
   handleCreate() {
     Events.create(this.state.eventData);
+    this.refs.input.value = '';
+    this.setState({ canCreate: false, eventData: null });
   }
 
   render() {
